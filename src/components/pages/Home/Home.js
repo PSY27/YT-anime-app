@@ -8,6 +8,9 @@ const styles = StyleSheet.create({
   coloumWrapperStyle: {
     justifyContent: "space-between",
     padding: 10,
+  },
+  textColor:{
+    color:"black"
   }
 });
 
@@ -23,7 +26,7 @@ const HomeScreen = () => {
   return (
    <View>
       {isLoading ? (
-        <Text>Loading..</Text>
+        <Text style={styles.textColor}>Loading..</Text>
       ) : data ? (
         <FlatList
           data={data.data}
@@ -33,9 +36,9 @@ const HomeScreen = () => {
           numColumns={2}
         />
       ) : (
-        <Text>Whoops No Data Available</Text>
+        <Text style={styles.textColor}>Whoops No Data Available</Text>
       )}
-      <Text>Home Screen</Text>
+      <Text style={styles.textColor}>Home Screen</Text>
     </View>
   );
 };

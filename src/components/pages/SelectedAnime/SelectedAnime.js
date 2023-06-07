@@ -14,6 +14,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     padding: 10,
   },
+  textColor:{
+    color:"black"
+  },
 });
 const dimensionsForScreen = Dimensions.get('screen');
 const SelectedAnimeScreen = ({route}) => {
@@ -35,11 +38,11 @@ const SelectedAnimeScreen = ({route}) => {
 
   return (
     <View style={{backgroundColor:playing? "black":"transparent",height:dimensionsForScreen.height,width:dimensionsForScreen.width}}>
-      <Text>{selectedAnimeData.title}</Text>
-      <Text>{selectedAnimeData.title_japanese}</Text>
-      <Text>{selectedAnimeData.approved}</Text>
+      <Text style={styles.textColor}>{selectedAnimeData.title}</Text>
+      <Text style={styles.textColor}>{selectedAnimeData.title_japanese}</Text>
+      <Text style={styles.textColor}>{selectedAnimeData.approved}</Text>
       {isLoading ? (
-        <Text>Loading..</Text>
+        <Text style={styles.textColor}>Loading..</Text>
       ) : data ? (
         <View >
           {data.data.trailer.youtube_id ? (
@@ -51,11 +54,11 @@ const SelectedAnimeScreen = ({route}) => {
               onChangeState={onStateChanged}
             />
           ) : (
-            <Text>No Trailer Available</Text>
+            <Text style={styles.textColor}>No Trailer Available</Text>
           )}
         </View>
       ) : (
-        <Text>No Data Available</Text>
+        <Text style={styles.textColor}>No Data Available</Text>
       )}
     </View> 
   );
